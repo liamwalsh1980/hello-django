@@ -7,6 +7,20 @@
     <title>Document</title>
 </head>
 <body>
-    <h1 style="color:red;">Things I need to do:</h1>
+    <h1 style="color:blue;">Things I need to do:</h1>
+    <table>
+        {% for item in items %}
+            <tr>
+            {% if item.done %}
+                <td><strike>{{ item.name }}</strike></td>
+            {% else %}
+                <td>{{ item.name }}</td>
+            {% endif %}
+            </tr>
+        {% empty %}
+        <tr><td><h2>You have nothing to do.</h2></td></tr>
+        {% endfor %}
+    </table>
+    <a href="/add">Add an Item</a>
 </body>
 </html>
